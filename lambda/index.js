@@ -41,10 +41,10 @@ const GetSleepQualityIntentHandler = {
     },
     handle(handlerInput) {
         
-        const slots = handlerInput.requestEnvelope.request.intent.slots
+        let slots = handlerInput.requestEnvelope.request.intent.slots
         
-        const numHours = slots.NumberOfHours.value;
-        const sleepQuality = slots.SleepQuality.value;
+        let numHours = slots.NumberOfHours.value;
+        let sleepQuality = slots.SleepQuality.value;
         
         let sleepHours = parseInt(numHours);
         
