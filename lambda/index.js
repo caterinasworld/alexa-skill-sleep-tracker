@@ -40,7 +40,38 @@ const GetSleepQualityIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetSleepQualityIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'This is the sleep quality intent!';
+        
+        const slots = handlerInput.requestEnvelope.request.intent.slots
+        
+        const numHours = slots.NumberOfHours.value;
+        const sleepQuality = slots.SleepQuality.value;
+        
+        let sleepHours = parseInt(numHours);
+        
+        let greatSleep = ["excellent", "wonderful", "magnificent", "restful"]; 
+        let goodSleep = ["satisfactory", "good", "ok", "adequate"]
+        let badSleep = ["poor", "extremely poor", "inadequate", "insufficient", "restless"]; 
+        
+        let speakOutput = 'This is the sleep quality intent! ';
+
+        
+        if(Number.isInteger(sleepHours)) {
+            
+            if (greatSleep.includes(sleepQuality)){
+                sleepHours += 2;
+                speakOutput += " Glad you got a good night's sleep. ";
+            }
+            
+            if (sleepHours > 8){
+                speakOutput += " You should feel refreshed ";
+            }
+            
+            if (sleepHours < 5){
+                speakOutput += " Get more sleep!";
+            }
+            
+        }
+        
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
