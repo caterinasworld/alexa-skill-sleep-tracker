@@ -54,7 +54,7 @@ const GetSleepQualityIntentHandler = {
         
         if(Number.isInteger(sleepHours)) {
 
-            let speakOutput = "This is the sleep quality intent! ";
+            let speakOutput = "";
             
             if (greatSleep.includes(sleepQuality)){
                 sleepHours += 2;
