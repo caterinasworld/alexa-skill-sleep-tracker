@@ -52,7 +52,7 @@ const GetSleepQualityIntentHandler = {
         let goodSleep = ["satisfactory", "good", "ok", "adequate"]
         let badSleep = ["poor", "extremely poor", "inadequate", "insufficient", "restless"]; 
         
-        let speakOutput = 'This is the sleep quality intent! ';
+        let speakOutput = "This is the sleep quality intent! ";
 
         
         if(Number.isInteger(sleepHours)) {
