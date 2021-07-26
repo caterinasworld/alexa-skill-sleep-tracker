@@ -52,14 +52,14 @@ const GetSleepQualityIntentHandler = {
         let goodSleep = ["satisfactory", "good", "ok", "adequate"]
         let badSleep = ["poor", "extremely poor", "inadequate", "insufficient", "restless"]; 
         
-        if(Number.isInteger(sleepHours)) {
+        let speakOutput = "This is the sleep intent";
+        
+        if (greatSleep.includes(sleepQuality)){
+            sleepHours += 2;
+            speakOutput += " Glad you got a good night's sleep. ";
+        }
 
-            let speakOutput = "";
-            
-            if (greatSleep.includes(sleepQuality)){
-                sleepHours += 2;
-                speakOutput += " Glad you got a good night's sleep. ";
-            }
+        if(Number.isInteger(sleepHours)) {
             
             if (sleepHours > 8){
                 speakOutput += " You should feel refreshed ";
@@ -69,11 +69,11 @@ const GetSleepQualityIntentHandler = {
                 speakOutput += " Get more sleep!";
             }
             
-            return handlerInput.responseBuilder
+        }
+        
+        return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();
-            
-        }
     }
 };
 
