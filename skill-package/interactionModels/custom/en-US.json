@@ -1,0 +1,217 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "sleep fax",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "hey",
+            "hi",
+            "hello there",
+            "hey there",
+            "hi there",
+            "hello there sleep fax",
+            "hey there sleep fax",
+            "hi there sleep fax"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "GetSleepQualityIntent",
+          "slots": [
+            {
+              "name": "NumberOfHours",
+              "type": "AMAZON.NUMBER"
+            },
+            {
+              "name": "SleepQuality",
+              "type": "SleepQuality"
+            }
+          ],
+          "samples": [
+            "Is {NumberOfHours} hours of sleep each night a reasonable amount",
+            "Is it enough to get {NumberOfHours} hours of sleep",
+            "Did I get enough sleep if I got {NumberOfHours} hours of sleep",
+            "Should I get more than {NumberOfHours} hours of sleep",
+            "Should I get more than {NumberOfHours} hours of sleep each night",
+            "Do I need more than {NumberOfHours} hours of sleep",
+            "Do I need more than {NumberOfHours} hours of sleep each night",
+            "How rested will I be with {NumberOfHours} hours of sleep",
+            "How sleepy will I be with {NumberOfHours} hours of sleep",
+            "I get {NumberOfHours} hours of {SleepQuality} sleep each night is that enough",
+            "Is {NumberOfHours} hours of {SleepQuality} sleep each night a reasonable amount",
+            "Is it enough to get {NumberOfHours} hours of {SleepQuality} sleep",
+            "Did I get enough sleep if I got {NumberOfHours} hours of {SleepQuality} sleep",
+            "Should I get more than {NumberOfHours} hours of {SleepQuality} sleep",
+            "Should I get more than {NumberOfHours} hours of {SleepQuality} sleep each night",
+            "Do I need more than {NumberOfHours} hours of {SleepQuality} sleep",
+            "Do I need more than {NumberOfHours} hours of {SleepQuality} sleep each night",
+            "How rested will I be with {NumberOfHours} hours of {SleepQuality} sleep",
+            "How sleepy will I be with {NumberOfHours} hours of {SleepQuality} sleep",
+            "How rested will I be if I had {SleepQuality} sleep last night",
+            "How sleepy will I be if I had {SleepQuality} sleep last night"
+          ]
+        },
+        {
+          "name": "FindSleepClinicIntent",
+          "slots": [
+            {
+              "name": "CityName",
+              "type": "AMAZON.City"
+            }
+          ],
+          "samples": [
+            "Where are all the sleep clinics in {CityName}",
+            "Where is the nearest sleep clinic to {CityName}",
+            "Where in {CityName} are all the sleep clinics",
+            "Are there any sleep clinics in {CityName}",
+            "Are there any sleep clinics close in {CityName}",
+            "What are the best sleep clinics in {CityName}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "poor"
+              }
+            },
+            {
+              "name": {
+                "value": "extremely poor"
+              }
+            },
+            {
+              "name": {
+                "value": "inadequate"
+              }
+            },
+            {
+              "name": {
+                "value": "insufficient"
+              }
+            },
+            {
+              "name": {
+                "value": "restless"
+              }
+            },
+            {
+              "name": {
+                "value": "satisfactory"
+              }
+            },
+            {
+              "name": {
+                "value": "good"
+              }
+            },
+            {
+              "name": {
+                "value": "ok"
+              }
+            },
+            {
+              "name": {
+                "value": "adequate"
+              }
+            },
+            {
+              "name": {
+                "value": "excellent"
+              }
+            },
+            {
+              "name": {
+                "value": "wonderful"
+              }
+            },
+            {
+              "name": {
+                "value": "magnificent"
+              }
+            },
+            {
+              "name": {
+                "value": "restful"
+              }
+            }
+          ],
+          "name": "SleepQuality"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetSleepQualityIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "NumberOfHours",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.349937085148.3828001565"
+              }
+            },
+            {
+              "name": "SleepQuality",
+              "type": "SleepQuality",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.349937085148.3828001565",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Can you tell how many hours of sleep you got"
+          },
+          {
+            "type": "PlainText",
+            "value": "Tell me more about how many hours of sleep you got"
+          },
+          {
+            "type": "PlainText",
+            "value": "How many hours of sleep did you get "
+          }
+        ]
+      }
+    ]
+  },
+  "version": "11"
+}
